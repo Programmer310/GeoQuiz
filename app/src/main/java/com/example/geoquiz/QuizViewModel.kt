@@ -11,12 +11,16 @@ const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel() {
 
     private val questionBank = listOf(
-        Question(R.string.question_australia, true),
-        Question(R.string.question_oceans, true),
-        Question(R.string.question_mideast, false),
-        Question(R.string.question_africa, false),
-        Question(R.string.question_americas, true),
-        Question(R.string.question_asia, true))
+        Question(R.string.question_computer_history, true),
+        Question(R.string.question_java_history, false),
+        Question(R.string.question_python_return, true),
+        Question(R.string.question_javascript_design, true),
+        Question(R.string.question_c_interpreter, false),
+        Question(R.string.question_java_popularity, true),
+        Question(R.string.question_python_poem, false),
+        Question(R.string.question_javascript_coding, false),
+        Question(R.string.question_c_level, true)
+    )
 
     var isCheater: Boolean
         get() = savedStateHandle.get(IS_CHEATER_KEY) ?: false
