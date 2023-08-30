@@ -12,6 +12,7 @@
         android:id="@+id/question_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
         android:padding="24dp"
         tools:text="@string/question_computer_history" />
 
@@ -24,12 +25,16 @@
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/green"
+            android:textSize="18dp"
             android:text="@string/true_button" />
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/red"
+            android:textSize="18dp"
             android:text="@string/false_button" />
 
     </LinearLayout>
@@ -39,14 +44,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="@string/cheat_button" />
+        android:text="@string/cheat_button"
+        android:textSize="18dp" />
 
     <Button
         android:id="@+id/next_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next_button"
+        android:textSize="18dp"
         app:icon="@drawable/arrow_right"
         app:iconGravity="end" />
+
+    <Button
+        android:id="@+id/previous_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/previous_button"
+        android:textSize="18dp"
+        app:icon="@drawable/arrow_left"
+        app:iconGravity="start" />
 
 </LinearLayout>

@@ -12,19 +12,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:text="@string/warning_text" />
+        android:text="@string/warning_text"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/answer_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
+        android:textSize="20dp"
         tools:text="Answer" />
 
     <Button
         android:id="@+id/show_answer_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/show_answer_button" />
+        android:text="@string/show_answer_button"
+        android:textSize="18dp" />
 
 </LinearLayout>

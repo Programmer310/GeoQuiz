@@ -40,4 +40,12 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel()
         currentIndex = (currentIndex + 1) % questionBank.size
     }
 
+    fun moveToPrev() {
+        currentIndex = if ((currentIndex - 1) >= 0) {
+            currentIndex - 1
+        } else {
+            0
+        }
+    }
+
 }
