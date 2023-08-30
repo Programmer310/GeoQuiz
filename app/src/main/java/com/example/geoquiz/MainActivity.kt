@@ -1,7 +1,6 @@
 package com.example.geoquiz
 
 import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -47,6 +46,11 @@ class MainActivity : AppCompatActivity() {
 
         binding.nextButton.setOnClickListener { view: View ->
             quizViewModel.moveToNext()
+            updateQuestion()
+        }
+
+        binding.previousButton.setOnClickListener { view: View ->
+            quizViewModel.moveToPrev()
             updateQuestion()
         }
 

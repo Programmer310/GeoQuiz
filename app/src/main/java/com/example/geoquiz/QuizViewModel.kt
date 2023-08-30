@@ -1,6 +1,5 @@
 package com.example.geoquiz
 
-import android.util.Log
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 
