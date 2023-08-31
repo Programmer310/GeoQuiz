@@ -38,10 +38,14 @@ class MainActivity : AppCompatActivity() {
 
         binding.trueButton.setOnClickListener { view: View ->
             checkAnswer(true)
+            quizViewModel.wasAnswered(true)
+            setButtonState()
         }
 
         binding.falseButton.setOnClickListener { view: View ->
             checkAnswer(false)
+            quizViewModel.wasAnswered(true)
+            setButtonState()
         }
 
         binding.nextButton.setOnClickListener { view: View ->
@@ -62,6 +66,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         updateQuestion()
+
     }
 
     override fun onStart() {
@@ -87,6 +92,7 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion() {
         val questionTextResId = quizViewModel.currentQuestionText
         binding.questionTextView.setText(questionTextResId)
+        setButtonState()
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
@@ -99,5 +105,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
+    }
+
+    private fun setButtonState() {
+        val answerButtonState = when {
+            quizViewModel.isAnswered -> false
+            else -> true
+        }
+
+        binding.trueButton.isEnabled = answerButtonState
+        binding.falseButton.isEnabled = answerButtonState
     }
 }

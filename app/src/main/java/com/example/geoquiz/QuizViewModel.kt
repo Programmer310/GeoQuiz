@@ -10,15 +10,15 @@ const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel() {
 
     private val questionBank = listOf(
-        Question(R.string.question_computer_history, true),
-        Question(R.string.question_java_history, false),
-        Question(R.string.question_python_return, true),
-        Question(R.string.question_javascript_design, true),
-        Question(R.string.question_c_interpreter, false),
-        Question(R.string.question_java_popularity, true),
-        Question(R.string.question_python_poem, false),
-        Question(R.string.question_javascript_coding, false),
-        Question(R.string.question_c_level, true)
+        Question(R.string.question_computer_history, true, false),
+        Question(R.string.question_java_history, false, false),
+        Question(R.string.question_python_return, true, false),
+        Question(R.string.question_javascript_design, true, false),
+        Question(R.string.question_c_interpreter, false, false),
+        Question(R.string.question_java_popularity, true, false),
+        Question(R.string.question_python_poem, false, false),
+        Question(R.string.question_javascript_coding, false, false),
+        Question(R.string.question_c_level, true, false)
     )
 
     var isCheater: Boolean
@@ -35,6 +35,9 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel()
     val currentQuestionText: Int
         get() = questionBank[currentIndex].textResId
 
+    val isAnswered: Boolean
+        get() = questionBank[currentIndex].answered
+
     fun moveToNext() {
         currentIndex = (currentIndex + 1) % questionBank.size
     }
@@ -43,8 +46,12 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel()
         currentIndex = if ((currentIndex - 1) >= 0) {
             currentIndex - 1
         } else {
-            0
+            questionBank.size - 1
         }
+    }
+
+    fun wasAnswered(buttonPressed: Boolean) {
+        questionBank[currentIndex].answered = buttonPressed
     }
 
 }
