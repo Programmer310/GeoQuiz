@@ -1,6 +1,7 @@
 package com.example.geoquiz
 
 import android.app.Activity
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import com.example.geoquiz.databinding.ActivityMainBinding
 
 private const val TAG = "MainActivity"
@@ -109,8 +111,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun setButtonState() {
         val answerButtonState = when {
-            quizViewModel.isAnswered -> false
-            else -> true
+            quizViewModel.isAnswered -> {
+                binding.trueButton.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.gray))
+                binding.falseButton.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.gray))
+                false
+            }
+            else -> {
+                binding.trueButton.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.green))
+                binding.falseButton.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.red))
+                true
+            }
         }
 
         binding.trueButton.isEnabled = answerButtonState
