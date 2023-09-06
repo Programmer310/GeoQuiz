@@ -39,15 +39,15 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Got a QuizViewModel: $quizViewModel")
 
         binding.trueButton.setOnClickListener { view: View ->
-            checkAnswer(true)
             quizViewModel.wasAnswered(true)
             setButtonState()
+            checkAnswer(true)
         }
 
         binding.falseButton.setOnClickListener { view: View ->
-            checkAnswer(false)
             quizViewModel.wasAnswered(true)
             setButtonState()
+            checkAnswer(false)
         }
 
         binding.nextButton.setOnClickListener { view: View ->
@@ -98,15 +98,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
-        val correctAnswer = quizViewModel.currentQuestionAnswer
+        if (quizViewModel.checkFinished()) {
+            val gradeString = "Grade: ${quizViewModel.calcGrade()}%\nPlease restart app to play again."
+            Toast.makeText(this, gradeString, Toast.LENGTH_SHORT).show()
+        } else {
+            val correctAnswer = quizViewModel.currentQuestionAnswer
 
-        val messageResId = when {
-            quizViewModel.isCheater -> R.string.judgement_toast
-            userAnswer == correctAnswer -> R.string.correct_toast
-            else -> R.string.incorrect_toast
+            val messageResId = when {
+                quizViewModel.isCheater -> R.string.judgement_toast
+                userAnswer == correctAnswer -> {
+                    quizViewModel.setCorrect(true)
+                    R.string.correct_toast
+                }
+                else -> R.string.incorrect_toast
+            }
+
+            Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
         }
-
-        Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
     }
 
     private fun setButtonState() {

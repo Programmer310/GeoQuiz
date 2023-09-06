@@ -10,15 +10,15 @@ const val IS_CHEATER_KEY = "IS_CHEATER_KEY"
 class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel() {
 
     private val questionBank = listOf(
-        Question(R.string.question_computer_history, true, false),
-        Question(R.string.question_java_history, false, false),
-        Question(R.string.question_python_return, true, false),
-        Question(R.string.question_javascript_design, true, false),
-        Question(R.string.question_c_interpreter, false, false),
-        Question(R.string.question_java_popularity, true, false),
-        Question(R.string.question_python_poem, false, false),
-        Question(R.string.question_javascript_coding, false, false),
-        Question(R.string.question_c_level, true, false)
+        Question(R.string.question_computer_history, true, false, false),
+        Question(R.string.question_java_history, false, false, false),
+        Question(R.string.question_python_return, true, false, false),
+        Question(R.string.question_javascript_design, true, false, false),
+        Question(R.string.question_c_interpreter, false, false, false),
+        Question(R.string.question_java_popularity, true, false, false),
+        Question(R.string.question_python_poem, false, false, false),
+        Question(R.string.question_javascript_coding, false, false, false),
+        Question(R.string.question_c_level, true, false, false)
     )
 
     var isCheater: Boolean
@@ -52,6 +52,34 @@ class QuizViewModel(private val savedStateHandle: SavedStateHandle): ViewModel()
 
     fun wasAnswered(buttonPressed: Boolean) {
         questionBank[currentIndex].answered = buttonPressed
+    }
+
+    fun setCorrect(isCorrect: Boolean) {
+        questionBank[currentIndex].correct = isCorrect
+    }
+
+    fun checkFinished(): Boolean {
+        for (question in questionBank) {
+            if (!question.answered) {
+                return false
+            }
+        }
+        return true
+    }
+
+    fun calcGrade(): String {
+        var finalGrade = 0.0
+
+        for (question in questionBank) {
+            if (question.correct) {
+                finalGrade += 1.0
+            }
+        }
+
+        finalGrade /= questionBank.size
+        finalGrade *= 100
+
+        return String.format("%.2f", finalGrade)
     }
 
 }
