@@ -124,6 +124,8 @@ class MainActivity : AppCompatActivity() {
                     ContextCompat.getColor(this, R.color.gray))
                 binding.falseButton.setBackgroundColor(
                     ContextCompat.getColor(this, R.color.gray))
+                binding.cheatButton.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.gray))
                 false
             }
             else -> {
@@ -131,6 +133,8 @@ class MainActivity : AppCompatActivity() {
                     ContextCompat.getColor(this, R.color.green))
                 binding.falseButton.setBackgroundColor(
                     ContextCompat.getColor(this, R.color.red))
+                binding.cheatButton.setBackgroundColor(
+                    ContextCompat.getColor(this, R.color.purple))
                 true
             }
         }

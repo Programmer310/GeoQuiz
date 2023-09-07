@@ -10,13 +10,13 @@
     <string name="show_answer_button">Show Answer</string>
     <string name="cheat_button">Cheat!</string>
     <string name="judgement_toast">Cheating is wrong.</string>
-    <string name="question_computer_history">The first computer was built in 1822.T</string>
-    <string name="question_java_history">The company Oracle invented the Java programming language.F</string>
-    <string name="question_python_return">Python functions can return multiple values.T</string>
-    <string name="question_javascript_design">JavaScript\'s design was influenced by 9 different languages such as Java, Lua, and Python.T</string>
-    <string name="question_c_interpreter">Like Ruby and JavaScript, C programming language is interpreter-based.F</string>
-    <string name="question_java_popularity">Java is the second most popular programming language after C.T</string>
-    <string name="question_python_poem">Python\'s creator, Guido van Rossum, wrote the poem "The Zen of Python" to detail Python\'s philosophies.F</string>
-    <string name="question_javascript_coding">The output of the Javascript code, console.log("red" + 2 + 3), is "red5".F</string>
-    <string name="question_c_level">C is considered a low-level programming language.T</string>
+    <string name="question_computer_history">The first computer was built in 1822.</string>
+    <string name="question_java_history">The company Oracle invented the Java programming language.</string>
+    <string name="question_python_return">Python functions can return multiple values.</string>
+    <string name="question_javascript_design">JavaScript\'s design was influenced by 9 different languages such as Java, Lua, and Python.</string>
+    <string name="question_c_interpreter">Like Ruby and JavaScript, C programming language is interpreter-based.</string>
+    <string name="question_java_popularity">Java is the second most popular programming language after C.</string>
+    <string name="question_python_poem">Python\'s creator, Guido van Rossum, wrote the poem "The Zen of Python" to detail Python\'s philosophies.</string>
+    <string name="question_javascript_coding">The output of the Javascript code, console.log("red" + 2 + 3), is "red5".</string>
+    <string name="question_c_level">C is considered a low-level programming language.</string>
 </resources>
