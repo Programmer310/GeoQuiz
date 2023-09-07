@@ -137,5 +137,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.trueButton.isEnabled = answerButtonState
         binding.falseButton.isEnabled = answerButtonState
+        binding.cheatButton.isEnabled = answerButtonState
     }
 }
